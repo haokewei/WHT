@@ -3,7 +3,6 @@ package laoshi;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.sql.*;
-
 import javax.swing.JOptionPane;
 
 public class laoshi extends ActionSupport{

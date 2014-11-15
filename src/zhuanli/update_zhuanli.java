@@ -1,7 +1,6 @@
 package zhuanli;
 
 import com.opensymphony.xwork2.ActionSupport;
-
 import java.sql.*;
 
 import javax.swing.JOptionPane;

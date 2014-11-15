@@ -3,7 +3,6 @@ package keyanxiangmu;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.sql.*;
-
 import javax.swing.JOptionPane;
 
 public class update_kyxm extends ActionSupport{

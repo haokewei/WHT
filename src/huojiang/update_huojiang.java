@@ -3,7 +3,6 @@ package huojiang;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.sql.*;
-
 import javax.swing.JOptionPane;
 
 public class update_huojiang extends ActionSupport{
