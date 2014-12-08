@@ -169,8 +169,8 @@ public class add_kyxm extends ActionSupport{
 		Statement stmt=null;
 		ResultSet rs=null;
 		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研管理";
-		con = DriverManager.getConnection(url,"root","tx940614");
+		String url="jdbc:mysql://localhost:3306/科研成果";
+		con = DriverManager.getConnection(url,"root","1234");
 		stmt=con.createStatement();
 		String sql1="select * from 科研项目 where 项目名称='"+Xmmc+"'";
 		String sql2="insert into 科研项目 "+"(项目名称,项目来源,项目负责人,开始时间,结束时间,合同款,类型,鉴定验收时间,鉴定验收组织单位,课题合同号,经费卡号,备注,工作量分值)"

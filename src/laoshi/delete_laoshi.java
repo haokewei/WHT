@@ -30,8 +30,8 @@ public class delete_laoshi extends ActionSupport{
 		Statement stmt2=null;
 		ResultSet rs=null;
 		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研管理";
-		con = DriverManager.getConnection(url,"root","tx940614");
+		String url="jdbc:mysql://localhost:3306/科研成果";
+		con = DriverManager.getConnection(url,"root","1234");
 		stmt=con.createStatement();
 		stmt2=con.createStatement();
 		String sql1="select * from 老师 where 姓名='"+Xm+"'";	

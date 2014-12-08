@@ -3,6 +3,7 @@ package huojiang;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.sql.*;
+
 import javax.swing.JOptionPane;
 
 public class update_huojiang extends ActionSupport{
@@ -82,8 +83,8 @@ public class update_huojiang extends ActionSupport{
 			Statement stmt=null;
 			ResultSet rs=null;
 			Class.forName("com.mysql.jdbc.Driver");
-			String url="jdbc:mysql://localhost:3306/科研管理";
-			con = DriverManager.getConnection(url,"root","tx940614");
+			String url="jdbc:mysql://localhost:3306/科研成果";
+			con = DriverManager.getConnection(url,"root","1234");
 			stmt=con.createStatement();
 			String sql1="update 获奖 set 获奖类别='"+Hjlb+"',获奖等级='"+Hjdj+"',获奖人员名单='"+Hjrymd+"',工作量分值='"+Gzlfz+"',获奖时间='"+Hjsj+"' where 项目名称='"+Xmmc+"'";				
 			if(Hjlb==null||Hjdj==null||Hjrymd==null||Hjsj==null||Gzlfz==0||Xmmc==null)

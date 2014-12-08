@@ -1,6 +1,7 @@
 package zhuanli;
 
 import com.opensymphony.xwork2.ActionSupport;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
@@ -92,8 +93,8 @@ public class update_zhuanli extends ActionSupport{
 			Statement stmt=null;
 			ResultSet rs=null;
 			Class.forName("com.mysql.jdbc.Driver");
-			String url="jdbc:mysql://localhost:3306/科研管理";
-			con = DriverManager.getConnection(url,"root","tx940614");
+			String url="jdbc:mysql://localhost:3306/科研成果";
+			con = DriverManager.getConnection(url,"root","1234");
 			stmt=con.createStatement();
 			String sql1="update 专利 set 授予单位='"+Sydw+"',专利权人='"+Zlqr+"',人员名单='"+Rymd+"',工作量分值='"+Gzlfz+"',专利编号='"+Zlbh+"',时间='"+Sj+"' where 专利名称='"+Zlmc+"'";				
 			if(Sydw==null||Zlqr==null||Rymd==null||Sj==null||Gzlfz==0||Zlmc==null||Zlbh==null)

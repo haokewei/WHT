@@ -32,8 +32,8 @@ public class delete_xsjz extends ActionSupport{
 		Connection con=null;
 		Statement stmt=null;
 		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研管理";
-		con = DriverManager.getConnection(url,"root","tx940614");
+		String url="jdbc:mysql://localhost:3306/科研成果";
+		con = DriverManager.getConnection(url,"root","1234");
 		stmt=con.createStatement();
 		String sql1="delete  from 学术兼职 where 标识符='"+Bzf+"'";
 		stmt.executeUpdate(sql1);

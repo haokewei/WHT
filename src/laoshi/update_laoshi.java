@@ -92,8 +92,8 @@ public class update_laoshi extends ActionSupport{
 			Statement stmt=null;
 			ResultSet rs=null;
 			Class.forName("com.mysql.jdbc.Driver");
-			String url="jdbc:mysql://localhost:3306/科研管理";
-			con = DriverManager.getConnection(url,"root","tx940614");
+			String url="jdbc:mysql://localhost:3306/科研成果";
+			con = DriverManager.getConnection(url,"root","1234");
 			stmt=con.createStatement();
 			String sql1="update 老师 set 单位='"+Dw+"',职务职称='"+Zwzc+"',岗位='"+Gw+"',岗级='"+Gj+"',岗级分值='"+Gjfz+"',领导加分='"+Ldjf+"' where 姓名='"+Xm+"'";				
 			if(Dw==null||Zwzc==null||Ldjf==0||Gw==null||Gj==0||Gjfz==0||Xm==null)

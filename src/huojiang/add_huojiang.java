@@ -94,8 +94,8 @@ public class add_huojiang extends ActionSupport{
 		Statement stmt=null;
 		ResultSet rs=null;
 		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研管理";
-		con = DriverManager.getConnection(url,"root","tx940614");
+		String url="jdbc:mysql://localhost:3306/科研成果";
+		con = DriverManager.getConnection(url,"root","1234");
 		stmt=con.createStatement();		
 		String sql2="select * from 获奖  where 项目名称='"+Xmmc+"' ";		
 		String sql3="insert into 获奖  "+"(项目名称,获奖类别,获奖等级,获奖人员名单,获奖时间,工作量分值)"+"value("+"'"+Xmmc+"'"+","+"'"+Hjlb+"'"+","+"'"+Hjdj+"'"+","+"'"+Hjrymd+"'"+","+"'"+Hjsj+"'"+","+"'"+Gzlfz+"'"+") ";		

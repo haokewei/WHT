@@ -104,8 +104,8 @@ public class add_zhuanli extends ActionSupport{
 		Statement stmt=null;
 		ResultSet rs=null;
 		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研管理";
-		con = DriverManager.getConnection(url,"root","tx940614");
+		String url="jdbc:mysql://localhost:3306/科研成果";
+		con = DriverManager.getConnection(url,"root","1234");
 		stmt=con.createStatement();		
 		String sql2="select * from 专利 where 专利名称='"+Zlmc+"'";		
 		String sql3="insert into 专利 "+"(专利名称,专利编号,授予单位,专利权人,人员名单,时间,工作量分值)"+"value("+"'"+Zlmc+"'"+","+"'"+Zlbh+"'"+","+"'"+Sydw+"'"+","+"'"+Zlqr+"'"+","+"'"+Rymd+"'"+","+"'"+Sj+"'"+","+"'"+Gzlfz+"'"+") ";		

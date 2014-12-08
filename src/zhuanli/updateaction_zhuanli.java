@@ -81,8 +81,8 @@ public class updateaction_zhuanli extends ActionSupport{
 			Statement stmt=null;
 			ResultSet rs=null;
 			Class.forName("com.mysql.jdbc.Driver");
-			String url="jdbc:mysql://localhost:3306/科研管理";
-			con = DriverManager.getConnection(url,"root","tx940614");
+			String url="jdbc:mysql://localhost:3306/科研成果";
+			con = DriverManager.getConnection(url,"root","1234");
 			stmt=con.createStatement();
 			String sql1="select * from 专利 where 专利名称='"+Zlmc+"'";		
 			rs=stmt.executeQuery(sql1);

@@ -77,8 +77,8 @@ public class lookbytitle extends ActionSupport{
 				Statement stmt=null;
 				ResultSet rs=null;
 				Class.forName("com.mysql.jdbc.Driver");
-				String url="jdbc:mysql://localhost:3306/科研管理";
-				con = DriverManager.getConnection(url,"root","tx940614");
+				String url="jdbc:mysql://localhost:3306/科研成果";
+				con = DriverManager.getConnection(url,"root","1234");
 				stmt=con.createStatement();
 				String sql1="select * from 科研项目 where 项目名称 like '%"+Title+"%'";
 				rs=stmt.executeQuery(sql1);

@@ -74,8 +74,8 @@ public class update_cbzz extends ActionSupport{
 			Statement stmt=null;
 			ResultSet rs=null;
 			Class.forName("com.mysql.jdbc.Driver");
-			String url="jdbc:mysql://localhost:3306/科研管理";
-			con = DriverManager.getConnection(url,"root","tx940614");
+			String url="jdbc:mysql://localhost:3306/科研成果";
+			con = DriverManager.getConnection(url,"root","1234");
 			stmt=con.createStatement();
 			String sql1="update 出版专著 set 出版社名称='"+Cbsmc+"',著者名单='"+Zzmd+"',工作量分值='"+Gzlfz+"',出版时间='"+Cbsj+"' where 专著名称='"+Zzmc+"'";				
 			if(Cbsmc==null||Zzmd==null||Cbsj==null||Gzlfz==0||Zzmc==null)

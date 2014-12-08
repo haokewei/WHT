@@ -109,8 +109,8 @@ public class add_xsjz extends ActionSupport{
 		Statement stmt=null;
 		ResultSet rs=null;
 		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研管理";
-		con = DriverManager.getConnection(url,"root","tx940614");
+		String url="jdbc:mysql://localhost:3306/科研成果";
+		con = DriverManager.getConnection(url,"root","1234");
 		stmt=con.createStatement();
 		String sql1="select * from 学术兼职 where 学术团体名称='"+Xsttmc+"' AND 姓名='"+Xm+"'";
 		String sql2="insert into 学术兼职 "+"(学术团体名称,担任职务,任职开始时间,任职结束时间,姓名,学术量分值,标识符)"+"value("+"'"+Xsttmc+"'"+","+"'"+Drzw+"'"+","+"'"+Rzkssj+"'"+","+"'"+Rzjssj+"'"+","+"'"+Xm+"'"+","+"'"+Xslfz+"'"+","+"'"+Bzf+"'"+") ";		

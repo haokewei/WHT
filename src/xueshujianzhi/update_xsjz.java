@@ -1,6 +1,7 @@
 package xueshujianzhi;
 
 import com.opensymphony.xwork2.ActionSupport;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
@@ -95,8 +96,8 @@ public class update_xsjz extends ActionSupport{
 		Connection con=null;
 		Statement stmt=null;
 		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研管理";
-		con = DriverManager.getConnection(url,"root","tx940614");
+		String url="jdbc:mysql://localhost:3306/科研成果";
+		con = DriverManager.getConnection(url,"root","1234");
 		stmt=con.createStatement();
 		String sql1="update 学术兼职 set 担任职务='"+Drzw+"',任职开始时间='"+Rzkssj+"',任职结束时间='"+Rzjssj+"',学术量分值='"+Xslfz+"' where 标识符='"+Bzf+"'";
 		if(Drzw==null||Rzkssj==null||Rzjssj==null)
