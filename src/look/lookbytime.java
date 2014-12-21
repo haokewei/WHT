@@ -2,12 +2,13 @@ package look;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 import java.util.*;
 
 import javax.swing.JOptionPane;
 
-import keyanxiangmu.*;
 
 public class lookbytime extends ActionSupport{
 	private String Time;
@@ -73,13 +74,11 @@ public class lookbytime extends ActionSupport{
 			return "error";
 		}
 		else{
-				Connection con=null;
-				Statement stmt=null;
-				ResultSet rs=null;
-				Class.forName("com.mysql.jdbc.Driver");
-				String url="jdbc:mysql://localhost:3306/科研成果";
-				con = DriverManager.getConnection(url,"root","1234");
-				stmt=con.createStatement();
+			Connect c=new Connect();
+			Connection con=c.getConnection();
+			Statement stmt=null;
+			ResultSet rs=null;
+			stmt=con.createStatement();	
 				
 				String sql1="select * from 科研项目 where 鉴定验收时间 like '%"+Time+"%'";
 				rs=stmt.executeQuery(sql1);

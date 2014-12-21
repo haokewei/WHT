@@ -2,9 +2,10 @@ package huojiang;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
-import javax.swing.JOptionPane;
 import javax.swing.JOptionPane;
 public class add_huojiang extends ActionSupport{
 	private String Xmmc;
@@ -90,13 +91,11 @@ public class add_huojiang extends ActionSupport{
 	
 	
 	public String execute() throws Exception{
-		Connection con=null;
+		Connect c=new Connect();
+		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研成果";
-		con = DriverManager.getConnection(url,"root","1234");
-		stmt=con.createStatement();		
+		stmt=con.createStatement();
 		String sql2="select * from 获奖  where 项目名称='"+Xmmc+"' ";		
 		String sql3="insert into 获奖  "+"(项目名称,获奖类别,获奖等级,获奖人员名单,获奖时间,工作量分值)"+"value("+"'"+Xmmc+"'"+","+"'"+Hjlb+"'"+","+"'"+Hjdj+"'"+","+"'"+Hjrymd+"'"+","+"'"+Hjsj+"'"+","+"'"+Gzlfz+"'"+") ";		
 		if(Hjlb==null||Hjrymd==null||Hjsj==null||Gzlfz==0||Xmmc==null)

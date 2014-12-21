@@ -2,11 +2,10 @@ package print;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
+
 
 import javax.swing.JOptionPane;
 
@@ -17,6 +16,8 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import connect.Connect;
 public class print_dw extends ActionSupport{
 private String Lujing;
 private String Time;
@@ -47,14 +48,12 @@ public void wrong1(){
 }
 public String execute() throws Exception
 {
-	Connection con=null;
+	Connect c=new Connect();
+	Connection con=c.getConnection();
 	Statement stmt=null;
 	ResultSet rs=null;
-	Class.forName("com.mysql.jdbc.Driver");
-	String url="jdbc:mysql://localhost:3306/科研成果";
+	stmt=con.createStatement();	
 	Time=getTime();
-	con = DriverManager.getConnection(url,"root","1234");
-	stmt=con.createStatement();
 	
 String sql ="select * from 单位统计" ;
  rs =stmt.executeQuery(sql) ;

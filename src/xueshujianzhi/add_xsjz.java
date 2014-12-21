@@ -2,6 +2,8 @@ package xueshujianzhi;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
@@ -104,14 +106,11 @@ public class add_xsjz extends ActionSupport{
 	
 	
 	public String execute() throws Exception{
-		setBzf();
-		Connection con=null;
+		Connect c=new Connect();
+		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研成果";
-		con = DriverManager.getConnection(url,"root","1234");
-		stmt=con.createStatement();
+		stmt=con.createStatement();	
 		String sql1="select * from 学术兼职 where 学术团体名称='"+Xsttmc+"' AND 姓名='"+Xm+"'";
 		String sql2="insert into 学术兼职 "+"(学术团体名称,担任职务,任职开始时间,任职结束时间,姓名,学术量分值,标识符)"+"value("+"'"+Xsttmc+"'"+","+"'"+Drzw+"'"+","+"'"+Rzkssj+"'"+","+"'"+Rzjssj+"'"+","+"'"+Xm+"'"+","+"'"+Xslfz+"'"+","+"'"+Bzf+"'"+") ";		
 		if(Xsttmc==null||Drzw==null||Rzkssj==null||Rzjssj==null||Xm==null)

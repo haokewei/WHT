@@ -2,9 +2,10 @@ package laoshi;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
-import javax.swing.JOptionPane;
 
 public class laoshi extends ActionSupport{
 	private String Xm;
@@ -74,13 +75,11 @@ public class laoshi extends ActionSupport{
 	}
 	
 	public String execute() throws Exception{
-		Connection con=null;
+		Connect c=new Connect();
+		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研成果";
-		con = DriverManager.getConnection(url,"root","1234");
-		stmt=con.createStatement();
+		stmt=con.createStatement();	
 		String sql1="select * from 老师 where 姓名='"+Xm+"'";		
 		rs=stmt.executeQuery(sql1);
 		while(rs.next()){

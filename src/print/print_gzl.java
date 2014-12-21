@@ -19,6 +19,8 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import connect.Connect;
 public class print_gzl extends ActionSupport{
 private String Lujing;
 private String Time;
@@ -86,51 +88,40 @@ public void wrong1(){
 }
 public String execute() throws Exception
 {
-	Connection con=null;
+	Connect c=new Connect();
+	Connection con=c.getConnection();
 	Statement stmt=null;
 	Statement stmt1=null;
 	Statement stmt2=null;
 	Statement stmt3=null;
 	ResultSet rs=null;
 	ResultSet rs0=null;
-	Class.forName("com.mysql.jdbc.Driver");
-	String url="jdbc:mysql://localhost:3306/科研成果";
 	Time=getTime();
 	String Xm="b";
 	String Dw="b";
 	int x1=0;
-	String x2=",";
-	System.out.println("AAAAAAAAAAAAAAAAAA");
+	String x2="";
 	String sql6="select * from 老师 ";	
 	String sql12="delete from 个人统计 ";
 	String sql7="insert into 个人统计 "+"(姓名,单位,出版专著数量,出版专著明细,获奖数量,获奖明细,科研项目数量,科研项目明细,学术兼职数量,学术兼职明细,专利数量,专利明细,总数量)"+"values("+"'"+Xm+"'"+","+"'"+Dw+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+") ";	
-	con = DriverManager.getConnection(url,"root","1234");
 	stmt=con.createStatement();
 	stmt1=con.createStatement();
 	stmt2=con.createStatement();
 	stmt3=con.createStatement();
 	stmt3.executeUpdate(sql12);
-	System.out.println("BBBBBBBBBBBBBBBBBBBBBBB");
 	rs0=stmt.executeQuery(sql6);
 	if(rs0.first()){
-		System.out.println("CCCCCCCCCCCCCCCCCCCCC");
 		Xm=rs0.getString("姓名");
 		Dw=rs0.getString("单位");
-		System.out.println(Xm+"%%%%%%%%%%%%%%%"+Dw);
-		System.out.println("EEEEEEEEEEEEEEEEEEE");
 		sql7="insert into 个人统计 "+"(姓名,单位,出版专著数量,出版专著明细,获奖数量,获奖明细,科研项目数量,科研项目明细,学术兼职数量,学术兼职明细,专利数量,专利明细,总数量)"+"values("+"'"+Xm+"'"+","+"'"+Dw+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+") ";
 		stmt1.executeUpdate(sql7);
-		System.out.println("FFFFFFFFFFFFFFFFFFFFF");
 		while(rs0.next()){
 			
 			Xm=rs0.getString("姓名");
 			Dw=rs0.getString("单位");
-			System.out.println(Xm+"GGGGGGGGGGGGGGGGGGGGG");
 			sql7="insert into 个人统计 "+"(姓名,单位,出版专著数量,出版专著明细,获奖数量,获奖明细,科研项目数量,科研项目明细,学术兼职数量,学术兼职明细,专利数量,专利明细,总数量)"+"values("+"'"+Xm+"'"+","+"'"+Dw+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+","+"'"+x2+"'"+","+""+x1+""+") ";
 			stmt1.execute(sql7);
-			System.out.println("HHHHHHHHHHHHHHHHHHHH");
-		}
-		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDD");
+			}
 	}
 	rs0.close();
 	
@@ -153,25 +144,21 @@ public String execute() throws Exception
 				sql0="select * from 个人统计  where 姓名 = '"+xingming+"'";
 				rs0=stmt1.executeQuery(sql0);
 				rs0.next();
-				System.out.println(rs0.getString("科研项目明细")+"DDDDDDDDDDDDDDDDDDDDDDDDDD");
-				mingxi=rs0.getString("科研项目明细").concat(rs.getString("项目名称").concat(","));
-				System.out.println(mingxi+"DDDDDDDDDDDDDDDDDDDDDDDDDD");
+				mingxi=rs0.getString("科研项目明细").concat(rs.getString("项目名称"));
 				shuliang=rs0.getInt("科研项目数量")+1;
 				zongshuliang=rs0.getInt("总数量")+1;
-				sql8="update 个人统计 set 科研项目明细='"+mingxi+"',科研项目数量='"+shuliang+"',总数量='"+zongshuliang+"'";
+				sql8="update 个人统计 set 科研项目明细='"+mingxi+"',科研项目数量='"+shuliang+"',总数量='"+zongshuliang+"' where 姓名='"+xingming+"'";
 				stmt2.executeUpdate(sql8);
 				rs0.close();
-				System.out.println(xingming+"DDDDDDDDDDDDDDDDDDDDDDDDDD");
 				while(rs.next()){
 					xingming=rs.getString("项目负责人");
 					sql0="select * from 个人统计  where 姓名 = '"+xingming+"'";
 					rs0=stmt1.executeQuery(sql0);
 					rs0.next();
-					mingxi=rs0.getString("科研项目明细").concat(rs.getString("项目名称").concat(","));
-					System.out.println(mingxi+"DDDDDDDDDDDDDDDDDDDDDDDDDD");
+					mingxi=rs0.getString("科研项目明细").concat(",".concat(rs.getString("项目名称")));
 					shuliang=rs0.getInt("科研项目数量")+1;
 					zongshuliang=rs0.getInt("总数量")+1;
-					sql8="update 个人统计 set 科研项目明细='"+mingxi+"',科研项目数量='"+shuliang+"',总数量='"+zongshuliang+"'";
+					sql8="update 个人统计 set 科研项目明细='"+mingxi+"',科研项目数量='"+shuliang+"',总数量='"+zongshuliang+"' where 姓名='"+xingming+"'";
 					stmt2.executeUpdate(sql8);
 					rs0.close();
 				}
@@ -182,27 +169,25 @@ public String execute() throws Exception
 			rs=stmt.executeQuery(sql2);
 			if(rs.first()){
 				xingming=rs.getString("著者名单");
-				System.out.println(xingming+"DDDDDDDDDDDDDDDDDDDDDDDDDD");
 				sql0="select * from 个人统计  where 姓名 = '"+xingming+"'";
 				rs0=stmt1.executeQuery(sql0);
 				rs0.next();
-				mingxi=rs0.getString("出版专著明细").concat(rs.getString("专著名称").concat(","));
+				mingxi=rs0.getString("出版专著明细").concat(rs.getString("专著名称"));
 				shuliang=rs0.getInt("出版专著数量")+1;
 				zongshuliang=rs0.getInt("总数量")+1;
-				sql8="update 个人统计 set 出版专著明细='"+mingxi+"',出版专著数量='"+shuliang+"',总数量='"+zongshuliang+"'";
+				sql8="update 个人统计 set 出版专著明细='"+mingxi+"',出版专著数量='"+shuliang+"',总数量='"+zongshuliang+"' where 姓名='"+xingming+"'";
 				stmt2.executeUpdate(sql8);
 				rs0.close();
 				while(rs.next()){
 					
 					xingming=rs.getString("著者名单");
-					System.out.println(xingming+"DDDDDDDDDDDDDDDDDDDDDDDDDD");
 					sql0="select * from 个人统计  where 姓名 = '"+xingming+"'";
 					rs0=stmt1.executeQuery(sql0);
 					rs0.next();
-					mingxi=rs0.getString("出版专著明细").concat(rs.getString("专著名称").concat(","));
+					mingxi=rs0.getString("出版专著明细").concat(",".concat(rs.getString("专著名称")));
 					shuliang=rs0.getInt("出版专著数量")+1;
 					zongshuliang=rs0.getInt("总数量")+1;
-					sql8="update 个人统计 set 出版专著明细='"+mingxi+"',出版专著数量='"+shuliang+"',总数量='"+zongshuliang+"'";
+					sql8="update 个人统计 set 出版专著明细='"+mingxi+"',出版专著数量='"+shuliang+"',总数量='"+zongshuliang+"' where 姓名='"+xingming+"'";
 					stmt2.executeUpdate(sql8);
 					rs0.close();
 				}
@@ -219,7 +204,7 @@ public String execute() throws Exception
 				mingxi=rs0.getString("获奖明细").concat(rs.getString("项目名称").concat(","));
 				shuliang=rs0.getInt("获奖数量")+1;
 				zongshuliang=rs0.getInt("总数量")+1;
-				sql8="update 个人统计 set 获奖明细='"+mingxi+"',获奖数量='"+shuliang+"',总数量='"+zongshuliang+"'";
+				sql8="update 个人统计 set 获奖明细='"+mingxi+"',获奖数量='"+shuliang+"',总数量='"+zongshuliang+"' where 姓名='"+xingming+"'";
 				stmt2.executeUpdate(sql8);
 				rs0.close();
 				while(rs.next()){
@@ -230,7 +215,7 @@ public String execute() throws Exception
 					mingxi=rs0.getString("获奖明细").concat(rs.getString("项目名称").concat(","));
 					shuliang=rs0.getInt("获奖数量")+1;
 					zongshuliang=rs0.getInt("总数量")+1;
-					sql8="update 个人统计 set 获奖明细='"+mingxi+"',获奖数量='"+shuliang+"',总数量='"+zongshuliang+"'";
+					sql8="update 个人统计 set 获奖明细='"+mingxi+"',获奖数量='"+shuliang+"',总数量='"+zongshuliang+"' where 姓名='"+xingming+"'";
 					stmt2.executeUpdate(sql8);
 					rs0.close();
 				}
@@ -247,7 +232,7 @@ public String execute() throws Exception
 				mingxi=rs0.getString("学术兼职明细").concat(rs.getString("学术团体名称").concat(","));
 				shuliang=rs0.getInt("学术兼职数量")+1;
 				zongshuliang=rs0.getInt("总数量")+1;
-				sql8="update 个人统计 set 学术兼职明细='"+mingxi+"',学术兼职数量='"+shuliang+"',总数量='"+zongshuliang+"'";
+				sql8="update 个人统计 set 学术兼职明细='"+mingxi+"',学术兼职数量='"+shuliang+"',总数量='"+zongshuliang+"' where 姓名='"+xingming+"'";
 				stmt2.executeUpdate(sql8);
 				rs0.close();
 				while(rs.next()){
@@ -258,7 +243,7 @@ public String execute() throws Exception
 					mingxi=rs0.getString("学术兼职明细").concat(rs.getString("学术团体名称").concat(","));
 					shuliang=rs0.getInt("学术兼职数量")+1;
 					zongshuliang=rs0.getInt("总数量")+1;
-					sql8="update 个人统计 set 学术兼职明细='"+mingxi+"',学术兼职数量='"+shuliang+"',总数量='"+zongshuliang+"'";
+					sql8="update 个人统计 set 学术兼职明细='"+mingxi+"',学术兼职数量='"+shuliang+"',总数量='"+zongshuliang+"' where 姓名='"+xingming+"'";
 					stmt2.executeUpdate(sql8);
 					rs0.close();
 				}
@@ -275,7 +260,7 @@ public String execute() throws Exception
 				mingxi=rs0.getString("专利明细").concat(rs.getString("专利名称").concat(","));
 				shuliang=rs0.getInt("专利数量")+1;
 				zongshuliang=rs0.getInt("总数量")+1;
-				sql8="update 个人统计 set 专利明细='"+mingxi+"',专利数量='"+shuliang+"',总数量='"+zongshuliang+"'";
+				sql8="update 个人统计 set 专利明细='"+mingxi+"',专利数量='"+shuliang+"',总数量='"+zongshuliang+"' where 姓名='"+xingming+"'";
 				stmt2.executeUpdate(sql8);
 				rs0.close();
 				while(rs.next()){
@@ -286,7 +271,7 @@ public String execute() throws Exception
 					mingxi=rs0.getString("专利明细").concat(rs.getString("专利名称").concat(","));
 					shuliang=rs0.getInt("专利数量")+1;
 					zongshuliang=rs0.getInt("总数量")+1;
-					sql8="update 个人统计 set 专利明细='"+mingxi+"',专利数量='"+shuliang+"',总数量='"+zongshuliang+"'";
+					sql8="update 个人统计 set 专利明细='"+mingxi+"',专利数量='"+shuliang+"',总数量='"+zongshuliang+"' where 姓名='"+xingming+"'";
 					stmt2.executeUpdate(sql8);
 					rs0.close();
 				}
@@ -353,7 +338,6 @@ i++ ;
 OutputStream out = new FileOutputStream(Lujing) ;
 wb.write(out) ;
 out.close() ;
-System.out.println("统计结果导出成功") ;
 rs.close() ;
 stmt.close();
 stmt1.close();

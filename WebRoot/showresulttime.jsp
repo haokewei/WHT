@@ -234,21 +234,23 @@ $(document).ready(function() {
             <br>  </br>  
             <br>  </br>  
 		<div align="center">
-<table border="2" cellsapcing="0" cellpadding ="0" bgcolor="white" width="60%" align="center">
+<table border="2" cellsapcing="0" style="color: #cc3300" cellpadding ="0" bgcolor="white" width="30%" align="center">
 		<h3>
 		<s:property value="Time"/> 的科研项目有:<br>
 		</h3>
 		<s:iterator value="Xmlb1" id="item"> 
     	<tr>
-		<td>
+		<td >
 		<s:a href="information_kyxm?Xmmc=%{item}" > 
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40" >
+		<font color=red>
 			<s:a href="deleteaction_kyxm?Xmmc=%{item}">删除</s:a>
+		</font>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_kyxm?Xmmc=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -261,7 +263,7 @@ $(document).ready(function() {
 		</h3>
 		<s:iterator value="Xmlb2" id="item"> 
     	<tr>
-		<td>
+		<td >
 		<s:a href="information_cbzz?Zzmc=%{item}" > 
 		<s:property value='item'/>
 		</s:a>

@@ -2,9 +2,10 @@ package cbzz;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
-import javax.swing.JOptionPane;
 import javax.swing.JOptionPane;
 public class add_cbzz extends ActionSupport{
 	private String Zzmc;
@@ -82,12 +83,10 @@ public class add_cbzz extends ActionSupport{
 	
 	
 	public String execute() throws Exception{
-		Connection con=null;
+		Connect c=new Connect();
+		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研成果";
-		con = DriverManager.getConnection(url,"root","1234");
 		stmt=con.createStatement();		
 		String sql2="select * from 出版专著  where 专著名称='"+Zzmc+"' ";		
 		String sql3="insert into 出版专著 "+"(专著名称,出版社名称,著者名单,出版时间,工作量分值)"+"value("+"'"+Zzmc+"'"+","+"'"+Cbsmc+"'"+","+"'"+Zzmd+"'"+","+"'"+Cbsj+"'"+","+"'"+Gzlfz+"'"+") ";		

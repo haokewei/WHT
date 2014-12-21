@@ -2,10 +2,12 @@ package zhuanli;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
-import javax.swing.JOptionPane;
+
 public class add_zhuanli extends ActionSupport{
 	private String Zlmc;
 	private String Zlbh;
@@ -100,12 +102,10 @@ public class add_zhuanli extends ActionSupport{
 	
 	
 	public String execute() throws Exception{
-		Connection con=null;
+		Connect c=new Connect();
+		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研成果";
-		con = DriverManager.getConnection(url,"root","1234");
 		stmt=con.createStatement();		
 		String sql2="select * from 专利 where 专利名称='"+Zlmc+"'";		
 		String sql3="insert into 专利 "+"(专利名称,专利编号,授予单位,专利权人,人员名单,时间,工作量分值)"+"value("+"'"+Zlmc+"'"+","+"'"+Zlbh+"'"+","+"'"+Sydw+"'"+","+"'"+Zlqr+"'"+","+"'"+Rymd+"'"+","+"'"+Sj+"'"+","+"'"+Gzlfz+"'"+") ";		

@@ -1,6 +1,8 @@
 package zcdl;
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
@@ -8,7 +10,7 @@ import javax.swing.JOptionPane;
 public class denglu extends ActionSupport{
 	private String Yhm;
 	private String Mm;
-	//private String Type;
+	private String Type;
 	
 	
 
@@ -35,7 +37,7 @@ public class denglu extends ActionSupport{
 	}
 
 
-/*
+
 	public String getType() {
 		return this.Type;
 	}
@@ -45,7 +47,7 @@ public class denglu extends ActionSupport{
 	public void setType(String Type) {
 		this.Type = Type;
 	}
-*/
+
 	public void wrong1()
 	{
 		String msg="用户名不存在";
@@ -60,27 +62,18 @@ public class denglu extends ActionSupport{
 		String title="信息提示";
 		JOptionPane.showMessageDialog(null,msg,title,type);
 	}
-	public void success()
-	{
-		String msg="登录成功";
-		int type=JOptionPane.YES_NO_CANCEL_OPTION;
-		String title="信息提示";
-		JOptionPane.showMessageDialog(null,msg,title,type);
-	}
 
 	public String execute() throws Exception{
-		Connection con=null;
+		Connect c=new Connect();
+		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研成果";
-		con = DriverManager.getConnection(url,"root","1234");
-		stmt=con.createStatement();
+		stmt=con.createStatement();	
 		
 		String sql1="select * from 用户 where 用户名='"+Yhm+"'";	
-		//String sql2="select * from 管理员 where 用户名='"+Yhm+"'";
-		//if(Type.equals("用户"))
-		//{
+		String sql2="select * from 管理员 where 用户名='"+Yhm+"'";
+		if(Type.equals("用户"))
+		{
 			rs=stmt.executeQuery(sql1);
 			if(!rs.next())
 			{
@@ -101,14 +94,13 @@ public class denglu extends ActionSupport{
 			rs.close();
 			stmt.close();
 			con.close();
-			success();
 			return "success";
-		//}
-		/*
+		}
+		
 		else		// if(Type.equals("管理员"))
 		{
 			rs=stmt.executeQuery(sql2);
-			if(rs==null)
+			if(!rs.next())
 			{
 				rs.close();
 				stmt.close();
@@ -127,9 +119,8 @@ public class denglu extends ActionSupport{
 			rs.close();
 			stmt.close();
 			con.close();
-			success();
-			return "success";
+			return "success2";
 		}
-		*/
+		
 	}
 }

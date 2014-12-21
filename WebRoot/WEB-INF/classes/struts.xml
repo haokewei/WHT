@@ -173,6 +173,7 @@
 <action name="denglu" class="zcdl.denglu">
 <result name="error">index.jsp</result>
 <result name="success">zhu.jsp</result>
+<result name="success2">zhu2.jsp</result>
 </action>
 </package>
 </struts>    

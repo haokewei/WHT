@@ -2,6 +2,8 @@ package zhuanli;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
@@ -23,16 +25,13 @@ public class delete_zhuanli extends ActionSupport{
 		JOptionPane.showMessageDialog(null,msg,Zlmc,type);
 	}
 	public String execute() throws Exception
-	{		
-		String temp=new String();
-		Connection con=null;
+	{	
+		Connect c=new Connect();
+		Connection con=c.getConnection();
 		Statement stmt=null;
 		Statement stmt2=null;
 		ResultSet rs=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研成果";
-		con = DriverManager.getConnection(url,"root","1234");
-		stmt=con.createStatement();
+		stmt=con.createStatement();	
 		stmt2=con.createStatement();
 		String sql1="select * from 专利 where 专利名称='"+Zlmc+"'";	
 		String sql2="delete  from 专利 where 专利名称='"+Zlmc+"'";

@@ -2,9 +2,10 @@ package xueshujianzhi;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
-import javax.swing.JOptionPane;
 
 public class updateaction_xsjz extends ActionSupport{
 	private String Xsttmc;
@@ -79,13 +80,11 @@ public class updateaction_xsjz extends ActionSupport{
 	}
 	
 	public String execute() throws Exception{
-		Connection con=null;
+		Connect c=new Connect();
+		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研成果";
-		con = DriverManager.getConnection(url,"root","1234");
-		stmt=con.createStatement();
+		stmt=con.createStatement();	
 		String sql1="select * from 学术兼职 where 标识符='"+Bzf+"'";		
 		rs=stmt.executeQuery(sql1);
 		while(rs.next()){

@@ -2,10 +2,12 @@ package laoshi;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
-import javax.swing.JOptionPane;
+
 public class add_laoshi extends ActionSupport{
 	private String Xm;
 	private String Dw;
@@ -99,13 +101,11 @@ public class add_laoshi extends ActionSupport{
 	
 	
 	public String execute() throws Exception{
-		Connection con=null;
+		Connect c=new Connect();
+		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研成果";
-		con = DriverManager.getConnection(url,"root","1234");
-		stmt=con.createStatement();		
+		stmt=con.createStatement();	
 		String sql2="select * from 老师 where 姓名='"+Xm+"' ";		
 		String sql3="insert into 老师 "+"(姓名,单位,职务职称,领导加分,岗位,岗级,岗级分值)"+"value("+"'"+Xm+"'"+","+"'"+Dw+"'"+","+"'"+Zwzc+"'"+","+"'"+Ldjf+"'"+","+"'"+Gw+"'"+","+"'"+Gj+"'"+","+"'"+Gjfz+"'"+") ";		
 		if(Dw==null||Zwzc==null||Ldjf==0||Gw==null||Gj==0||Gjfz==0||Xm==null)

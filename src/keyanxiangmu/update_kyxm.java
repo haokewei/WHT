@@ -2,6 +2,8 @@ package keyanxiangmu;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
@@ -154,12 +156,9 @@ public class update_kyxm extends ActionSupport{
 		JOptionPane.showMessageDialog(null,msg,title,type);
 	}
 	public String execute() throws Exception{
-		Connection con=null;
+		Connect c=new Connect();
+		Connection con=c.getConnection();
 		Statement stmt=null;
-		ResultSet rs=null;
-		Class.forName("com.mysql.jdbc.Driver");
-		String url="jdbc:mysql://localhost:3306/科研成果";
-		con = DriverManager.getConnection(url,"root","1234");
 		stmt=con.createStatement();
 		
 		String sql1="update 科研项目 set 项目来源='"+Xmly+"',项目负责人='"+Xmfzr+"',开始时间='"+Kssj+"'," +

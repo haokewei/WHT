@@ -2,6 +2,8 @@ package laoshi;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import connect.Connect;
+
 import java.sql.*;
 
 import javax.swing.JOptionPane;
@@ -87,14 +89,10 @@ public class update_laoshi extends ActionSupport{
 			JOptionPane.showMessageDialog(null,msg,title,type);
 		}
 		public String execute() throws Exception{
-			String tempID=new String();
-			Connection con=null;
+			Connect c=new Connect();
+			Connection con=c.getConnection();
 			Statement stmt=null;
-			ResultSet rs=null;
-			Class.forName("com.mysql.jdbc.Driver");
-			String url="jdbc:mysql://localhost:3306/科研成果";
-			con = DriverManager.getConnection(url,"root","1234");
-			stmt=con.createStatement();
+			stmt=con.createStatement();	
 			String sql1="update 老师 set 单位='"+Dw+"',职务职称='"+Zwzc+"',岗位='"+Gw+"',岗级='"+Gj+"',岗级分值='"+Gjfz+"',领导加分='"+Ldjf+"' where 姓名='"+Xm+"'";				
 			if(Dw==null||Zwzc==null||Ldjf==0||Gw==null||Gj==0||Gjfz==0||Xm==null)
 			{

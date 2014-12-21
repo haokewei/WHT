@@ -209,7 +209,17 @@ $(document).ready(function() {
 		<tr>
 		<td height ="50">密码:</td>
 		<td>
-		<input name="Mm" type="text" size ="50">
+		<input name="Mm" type="password" size ="50" style=" front-family:Wingdings;width:129;" oncopy="return false" oncut="return false" onpast="return false">
+		</td>
+		</tr>
+		<tr>
+		<td height ="50">类型：</td>
+		<td>
+		<select name="Type">
+					<option value="">请选择</option>
+					<option value="用户">用户</option>
+					<option value="管理员">管理员</option>
+		</select>
 		</td>
 		</tr>
 		<tr>
@@ -247,13 +257,13 @@ $(document).ready(function() {
 		<tr>
 		<td height ="30">密码:</td>
 		<td>
-		<input name="Mm" type="text" size ="30">
+		<input name="Mm" type="password" size ="30" style=" front-family:Wingdings;width:129;" oncopy="return false" oncut="return false" onpast="return false">
 		</td>
 		</tr>
 		<tr>
 		<td height ="30">确认密码:</td>
 		<td>
-		<input name="Qrmm" type="text" size ="30">
+		<input name="Qrmm" type="password" size ="30" style=" front-family:Wingdings;width:129;" oncopy="return false" oncut="return false" onpast="return false">
 		</td>
 		</tr>
 		<tr>
