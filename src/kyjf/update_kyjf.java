@@ -22,6 +22,7 @@ public class update_kyjf extends ActionSupport{
 	private String Jfkh;
 	private String Bz;
 	private float Gzlfz;
+	private String Bzf;
 	
 	public void setXmmc (String Xmmc) throws Exception
 	{
@@ -140,7 +141,14 @@ public class update_kyjf extends ActionSupport{
 		return this.Gzlfz;
 	}
 	
-	
+	public void setBzf()
+	{
+		this.Bzf = Nf + " " + Xmmc;
+	}
+	public String getBzf()
+	{
+		return this.Bzf;
+	}
 	
 	public void wrong()
 	{
@@ -157,26 +165,27 @@ public class update_kyjf extends ActionSupport{
 		JOptionPane.showMessageDialog(null,msg,title,type);
 	}
 	public String execute() throws Exception{
+		setBzf();
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
 		stmt=con.createStatement();
 		
-		String sql1="update 科研项目 set 项目来源='"+Xmly+"',项目负责人='"+Xmfzr+"',开始时间='"+Kssj+"'," +
+		String sql1="update 科研经费 set 项目名称='"+Xmmc+"',项目来源='"+Xmly+"',项目负责人='"+Xmfzr+"',开始时间='"+Kssj+"'," +
 				"结束时间='"+Jssj+"',合同款='"+Htk+"',年份='"+Nf+"',到款='"+Dk+"',未到款='"+Wdk+"'," +
-						"课题合同号='"+Kthth+"',经费卡号='"+Jfkh+"',备注='"+Bz+"',工作量分值='"+Gzlfz+"' where 项目名称='"+Xmmc+"'";
+						"课题合同号='"+Kthth+"',经费卡号='"+Jfkh+"',备注='"+Bz+"',工作量分值='"+Gzlfz+"' where 标识符='"+Bzf+"'";
 						
 		
-		if(Xmly==null||Xmfzr==null||Kssj==null||Jssj==null||Htk==0||Nf==null||Dk==0||Wdk==0||Kthth==null||Jfkh==null)
+		if(Xmly==null||Xmfzr==null||Kssj==null||Jssj==null||Htk==0||Nf==null||Dk==0||Wdk==0||Kthth==null||Jfkh==null||Bzf==null)
 		{
-			wrong();
+			//wrong();
 			stmt.close();
 			con.close();
 			return "error";
 		}
 		else{
 			stmt.executeUpdate(sql1);
-			success();
+			//success();
 			stmt.close();
 			con.close();
 			return "success";		

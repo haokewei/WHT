@@ -30,15 +30,16 @@ public class delete_jxxx extends ActionSupport{
 	}
 	public String execute() throws Exception
 	{		
+		String temp = new String(Bzf.getBytes("ISO-8859-1"),"UTF-8");
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
 		stmt=con.createStatement();
-		String sql1="delete  from 进修学习 where 标识符='"+Bzf+"'";
+		String sql1="delete  from 进修学习 where 标识符='"+temp+"'";
 		stmt.executeUpdate(sql1);
 		stmt.close();
 		con.close();
-		message();
+		//message();
 		return "success";
 	}
 }

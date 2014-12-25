@@ -26,6 +26,7 @@ public class delete_gjhz extends ActionSupport{
 	}
 	public String execute() throws Exception
 	{		
+		String temp = new String(Bgmc.getBytes("ISO-8859-1"),"UTF-8");
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
@@ -33,8 +34,8 @@ public class delete_gjhz extends ActionSupport{
 		ResultSet rs=null;
 		stmt=con.createStatement();
 		stmt2=con.createStatement();
-		String sql1="select * from 国际合作 where 报告名称='"+Bgmc+"'";	
-		String sql2="delete  from 国际合作 where 报告名称='"+Bgmc+"'";
+		String sql1="select * from 国际合作 where 报告名称='"+temp+"'";	
+		String sql2="delete  from 国际合作 where 报告名称='"+temp+"'";
 		rs=stmt.executeQuery(sql1);
 			while(rs.next())
 				stmt2.executeUpdate(sql2);
@@ -42,7 +43,7 @@ public class delete_gjhz extends ActionSupport{
 		stmt.close();
 		stmt2.close();
 		con.close();
-		message();
+		//message();
 		return "success";
 	}
 }

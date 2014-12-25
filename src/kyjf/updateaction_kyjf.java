@@ -21,6 +21,7 @@ public class updateaction_kyjf extends ActionSupport{
 	private String Jfkh;
 	private String Bz;
 	private float Gzlfz;
+	private String Bzf;
 	
 	public void setXmmc (String Xmmc) throws Exception
 	{
@@ -139,15 +140,23 @@ public class updateaction_kyjf extends ActionSupport{
 		return this.Gzlfz;
 	}
 	
-	
+	public void setBzf(String Bzf)
+	{
+		this.Bzf = Bzf;
+	}
+	public String getBzf()
+	{
+		return this.Bzf;
+	}
 	
 	public String execute() throws Exception{
+		String temp = new String(Bzf.getBytes("ISO-8859-1"),"UTF-8");
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
 		stmt=con.createStatement();
-		String sql1="select * from 科研经费 where 项目名称='"+Xmmc+"' and 年份='"+Nf+"'";		
+		String sql1="select * from 科研经费 where 标识符='"+temp+"'";		
 		rs=stmt.executeQuery(sql1);
 		while(rs.next()){
 			Xmmc = rs.getString("项目名称");
@@ -156,13 +165,14 @@ public class updateaction_kyjf extends ActionSupport{
 			Kssj = rs.getString("开始时间");
 			Jssj = rs.getString("结束时间");
 			Htk = rs.getFloat("合同款");
-			Nf = rs.getString("类型年份");
+			Nf = rs.getString("年份");
 			Dk = rs.getFloat("到款");
 			Wdk = rs.getFloat("未到款");
 			Kthth = rs.getString("课题合同号");
 			Jfkh = rs.getString("经费卡号");
 			Bz = rs.getString("备注");
 			Gzlfz = rs.getFloat("工作量分值");
+			Bzf = rs.getString("标识符");
 		}
 		rs.close();
 		stmt.close();

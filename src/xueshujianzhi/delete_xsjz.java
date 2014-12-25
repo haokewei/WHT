@@ -39,7 +39,7 @@ public class delete_xsjz extends ActionSupport{
 		stmt.executeUpdate(sql1);
 		stmt.close();
 		con.close();
-		message();
+		//message();
 		return "success";
 	}
 }

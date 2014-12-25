@@ -9,21 +9,15 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class delete_kyjf extends ActionSupport{
-	private String Xmmc;
-	private String Nf;
-	public String getLf() {
-		return this.Nf;
-	}
-	public void setLf(String Nf) {
-		this.Nf = Nf;
-	}
-	public void setXmmc(String Xmmc)
+	private String Bzf;
+	
+	public void setBzf(String Bzf)
 	{
-		this.Xmmc=Xmmc;
+		this.Bzf=Bzf;
 	}
-	public String getXmmc()
+	public String getBzf()
 	{
-		return Xmmc;
+		return Bzf;
 	}
 	
 	
@@ -36,15 +30,16 @@ public class delete_kyjf extends ActionSupport{
 	}
 	public String execute() throws Exception
 	{		
+		String temp = new String(Bzf.getBytes("ISO-8859-1"),"UTF-8");
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
 		stmt=con.createStatement();
-		String sql1="delete  from 科研项目 where 项目名称='"+Xmmc+"' and 年份='"+Nf+"'";
+		String sql1="delete  from 科研经费 where 标识符='"+temp+"'";
 		stmt.executeUpdate(sql1);
 		stmt.close();
 		con.close();
-		message();
+		//message();
 		return "success";
 	}
 }

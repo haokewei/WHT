@@ -217,7 +217,7 @@ $(document).ready(function() {
 			<li class="activate"><a href="index.jsp">成果统计并生成报表</a>
 			<ul class="sub-menu list-unstyled">
 				<li><a href="print_gzl.jsp">人员成果统计</a></li>
-				<li><a href="print_dw.jsp">单位成果统计</a></li> 
+				<li><a href="print_dw.jsp">工作量统计</a></li> 
 			</ul>
 			</li>
 		</ul>
@@ -234,7 +234,7 @@ $(document).ready(function() {
             <br>  </br>  
             <br>  </br>  
 		<div align="center">
-<table border="2" cellsapcing="0" cellpadding ="0" bgcolor="white" width="60%" align="center">
+<table border="2" cellsapcing="0"  cellpadding ="0" bgcolor="white" width="60%" align="center">
 		<h3>
 		<s:property value="Name"/> 参与的科研项目有:<br>
 		</h3>
@@ -245,10 +245,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_kyxm?Xmmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_kyxm?Xmmc=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -267,10 +267,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_huojiang?Xmmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_huojiang?Xmmc=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -288,10 +288,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_xsjz?Bzf=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_xsjz?Bzf=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -309,10 +309,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_zhuanli?Zlmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_zhuanli?Zlmc=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -330,10 +330,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_cbzz?Zzmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_cbzz?Zzmc=%{item}">更新</s:a>
 		</td>
 		</tr>

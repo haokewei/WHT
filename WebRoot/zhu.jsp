@@ -199,6 +199,10 @@ $(document).ready(function() {
 				<li><a href="add_kyxm.jsp">科研项目申报</a></li>
 				<li><a href="add_xsjz.jsp">学术兼职申报</a></li>
 				<li><a href="add_zhuanli.jsp">专利申报</a></li>
+				<li><a href="add_kyjf.jsp">科研经费</a></li>
+				<li><a href="add_jxxx.jsp">进修学习</a></li>
+				<li><a href="add_rjzzq.jsp">软件著作权</a></li>
+				<li><a href="add_gjhz.jsp">国际合作</a></li>
 			</ul>
 			</li>
 			<li class="activate"><a href="index.jsp">查询</a>
@@ -213,7 +217,7 @@ $(document).ready(function() {
 			<li class="activate"><a href="index.jsp">成果统计并生成报表</a>
 			<ul class="sub-menu list-unstyled">
 				<li><a href="print_gzl.jsp">人员成果统计</a></li>
-				<li><a href="print_dw.jsp">单位成果统计</a></li> 
+				<li><a href="print_dw.jsp">工作量统计</a></li> 
 			</ul>
 			</li>
 		</ul>

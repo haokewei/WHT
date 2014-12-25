@@ -216,7 +216,6 @@ $(document).ready(function() {
 		<td height ="50">类型：</td>
 		<td>
 		<select name="Type">
-					<option value="">请选择</option>
 					<option value="用户">用户</option>
 					<option value="管理员">管理员</option>
 		</select>

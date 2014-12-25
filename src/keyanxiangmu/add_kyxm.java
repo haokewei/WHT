@@ -178,7 +178,7 @@ public class add_kyxm extends ActionSupport{
 				""+"'"+Lx+"'"+","+"'"+Jdyssj+"'"+","+"'"+Jdyszzdw+"'"+","+"'"+Kthth+"'"+","+"'"+Jfkh+"'"+","+"'"+Bz+"'"+","+"'"+Gzlfz+"'"+") ";		
 		if(Xmmc==null||Xmly==null||Xmfzr==null||Kssj==null||Jssj==null||Htk==0||Lx==null||Jdyssj==null||Jdyszzdw==null||Kthth==null||Jfkh==null)
 		{
-			wrong1();
+			//wrong1();
 			stmt.close();
 			con.close();
 			return "incomplete";
@@ -188,7 +188,7 @@ public class add_kyxm extends ActionSupport{
 			rs=stmt.executeQuery(sql1);
 			if(rs.next())
 			{
-				wrong2();
+				//wrong2();
 				rs.close();
 				stmt.close();
 				con.close();
@@ -200,7 +200,7 @@ public class add_kyxm extends ActionSupport{
 				rs.close();
 				stmt.close();
 				con.close();
-				success();
+				//success();
 				return "success";
 			}
 		}

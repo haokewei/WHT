@@ -219,7 +219,7 @@ $(document).ready(function() {
 			<li class="activate"><a href="index.jsp">成果统计并生成报表</a>
 			<ul class="sub-menu list-unstyled">
 				<li><a href="print_gzl.jsp">人员成果统计</a></li>
-				<li><a href="print_dw.jsp">单位成果统计</a></li> 
+				<li><a href="print_dw.jsp">工作量统计</a></li> 
 			</ul>
 			</li>
 		</ul>
@@ -249,10 +249,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_kyxm?Xmmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_kyxm?Xmmc=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -271,10 +271,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_huojiang?Xmmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_huojiang?Xmmc=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -293,10 +293,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_xsjz?Bzf=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_xsjz?Bzf=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -315,10 +315,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_zhuanli?Zlmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_zhuanli?Zlmc=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -337,18 +337,108 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_cbzz?Zzmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_cbzz?Zzmc=%{item}">更新</s:a>
 		</td>
 		</tr>
 		</s:iterator>	
-		</table>	
+		</table>
+		<%} 
+		if(request.getAttribute("F6").equals("1")) {%>
+		<table border="2" cellsapcing="0" cellpadding ="0" bgcolor="white" width="60%" align="center">
+		<h3>
+		进修学习:<br>
+		</h3>
+		<s:iterator value="Xmlb6" id="item"> 
+    	<tr>
+		<td>
+		<s:a href="information_jxxx?Bzf=%{item}" > 
+		<s:property value='item'/>
+		</s:a>
+		</td>
+		<td width="40">
+			<s:a href="deleteaction_jxxx?Bzf=%{item}">删除</s:a>
+		</td>
+		<td width="40">
+			<s:a href="updateaction_jxxx?Bzf=%{item}">更新</s:a>
+		</td>
+		</tr>
+		</s:iterator>		
+		</table>
+		<%} 
+		if(request.getAttribute("F7").equals("1")) {%>
+		<table border="2" cellsapcing="0" cellpadding ="0" bgcolor="white" width="60%" align="center">
+		<h3>
+		国际合作:<br>
+		</h3>
+		<s:iterator value="Xmlb7" id="item"> 
+    	<tr>
+		<td>
+		<s:a href="information_gjhz?Bgmc=%{item}" > 
+		<s:property value='item'/>
+		</s:a>
+		</td>
+		<td width="40">
+			<s:a href="deleteaction_gjhz?Bgmc=%{item}">删除</s:a>
+		</td>
+		<td width="40">
+			<s:a href="updateaction_gjhz?Bgmc=%{item}">更新</s:a>
+		</td>
+		</tr>
+		</s:iterator>		
+		</table>
+		<%} 
+		if(request.getAttribute("F8").equals("1")) {%>
+		<table border="2" cellsapcing="0" cellpadding ="0" bgcolor="white" width="60%" align="center">
+		<h3>
+		科研经费:<br>
+		</h3>
+		<s:iterator value="Xmlb8" id="item"> 
+    	<tr>
+		<td>
+		<s:a href="information_kyjf?Bzf=%{item}" > 
+		<s:property value='item'/>
+		</s:a>
+		</td>
+		<td width="40">
+			<s:a href="deleteaction_kyjf?Bzf=%{item}">删除</s:a>
+		</td>
+		<td width="40">
+			<s:a href="updateaction_kyjf?Bzf=%{item}">更新</s:a>
+		</td>
+		</tr>
+		</s:iterator>		
+		</table>
+		<%} 
+		if(request.getAttribute("F9").equals("1")) {%>
+		<table border="2" cellsapcing="0" cellpadding ="0" bgcolor="white" width="60%" align="center">
+		<h3>
+		软件著作权:<br>
+		</h3>
+		<s:iterator value="Xmlb9" id="item"> 
+    	<tr>
+		<td>
+		<s:a href="information_rjzzq?Rjzzqmc=%{item}" > 
+		<s:property value='item'/>
+		</s:a>
+		</td>
+		<td width="40">
+			<s:a href="deleteaction_rjzzq?Rjzzqmc=%{item}">删除</s:a>
+		</td>
+		<td width="40">
+			<s:a href="updateaction_rjzzq?Rjzzqmc=%{item}">更新</s:a>
+		</td>
+		</tr>
+		</s:iterator>		
+		</table>		
 		<%} if(request.getAttribute("F1").equals("") && request.getAttribute("F2").equals("") && 
 				request.getAttribute("F3").equals("") && request.getAttribute("F4").equals("") && 
-				request.getAttribute("F5").equals("")){%>
+				request.getAttribute("F5").equals("") && request.getAttribute("F6").equals("") &&
+				request.getAttribute("F7").equals("") && request.getAttribute("F8").equals("") &&
+				request.getAttribute("F9").equals("")){%>
 			<div align="center">
 			抱歉没有相关结果！
 		<%} %>

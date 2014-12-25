@@ -97,7 +97,7 @@ public class denglu extends ActionSupport{
 			return "success";
 		}
 		
-		else		// if(Type.equals("管理员"))
+		else //if(Type.equals("管理员"))
 		{
 			rs=stmt.executeQuery(sql2);
 			if(!rs.next())

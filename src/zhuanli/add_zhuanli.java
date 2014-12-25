@@ -111,7 +111,7 @@ public class add_zhuanli extends ActionSupport{
 		String sql3="insert into 专利 "+"(专利名称,专利编号,授予单位,专利权人,人员名单,时间,工作量分值)"+"value("+"'"+Zlmc+"'"+","+"'"+Zlbh+"'"+","+"'"+Sydw+"'"+","+"'"+Zlqr+"'"+","+"'"+Rymd+"'"+","+"'"+Sj+"'"+","+"'"+Gzlfz+"'"+") ";		
 		if(Sydw==null||Zlqr==null||Rymd==null||Sj==null||Gzlfz==0||Zlmc==null||Zlbh==null)
 		{
-			wrong1();
+			//wrong1();
 			stmt.close();
 			con.close();
 			return "incomplete";
@@ -121,7 +121,7 @@ public class add_zhuanli extends ActionSupport{
 			rs=stmt.executeQuery(sql2);
 			if(rs.next())
 			{
-				wrong2();
+				//wrong2();
 				rs.close();
 				stmt.close();
 				con.close();
@@ -133,7 +133,7 @@ public class add_zhuanli extends ActionSupport{
 			rs.close();
 			stmt.close();
 			con.close();
-			success();
+			//success();
 			return "success";
 			}
 		}

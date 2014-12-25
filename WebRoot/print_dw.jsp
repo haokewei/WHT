@@ -1,10 +1,11 @@
 <%@page import ="java.util.ArrayList" %>
 <%@page import ="look.lookbytype" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<script src="browseFolder.js"></script>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-		<title>单位科研成果统计</title>
+		<title>个人科研成果统计</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -216,7 +217,7 @@ $(document).ready(function() {
 			<li class="activate"><a href="index.jsp">成果统计并生成报表</a>
 			<ul class="sub-menu list-unstyled">
 				<li><a href="print_gzl.jsp">人员成果统计</a></li>
-				<li><a href="print_dw.jsp">单位成果统计</a></li> 
+				<li><a href="print_dw.jsp">工作量统计</a></li> 
 			</ul>
 			</li>
 		</ul>
@@ -232,23 +233,15 @@ $(document).ready(function() {
             <br>  </br>  
             <br>  </br>  
             <br>  </br>  
-		<center>单位科研成果统计</center>
+		<center><font size="5">工作量统计</font></center>
 		<div align="center">
 			<form action="print_dw" method="post">
-				<table border="2" cellspacing="0" cellpadding="0" width="50%" align="center">
-				<tr><td align="center">时间：</td><td><input type="text" name="Time"></td></tr>
-				<tr><td align="center">保存路径：</td>
-				<td><SELECT name="Lujing">
-					<option value="">请选择</option>
-					<option value="D:\\单位成果统计表.xls">D:\\</option>
-					<option value="E:\\单位成果统计表.xls">E:\\</option>
-					<option value="F:\\单位成果统计表.xls">F:\\</option>
-				</SELECT>
-				</td>
-				</tr>
+				<table border="2" cellspacing="0" cellpadding="0" width="25%" align="center">
+				<tr><td align="center">时间：   </td><td><input type="text" name="Time"></td></tr>  
+				
 				<tr>
 				<td colspan="2" align="center">
-				<input type="submit" value="导出">
+				<input type="submit" value="统计">
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				<input type="reset" value="取消">
 				</td>

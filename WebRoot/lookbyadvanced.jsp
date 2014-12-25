@@ -222,7 +222,7 @@ $(document).ready(function() {
 			<li class="activate"><a href="index.jsp">成果统计并生成报表</a>
 			<ul class="sub-menu list-unstyled">
 				<li><a href="print_gzl.jsp">人员成果统计</a></li>
-				<li><a href="print_dw.jsp">单位成果统计</a></li> 
+				<li><a href="print_dw.jsp">工作量统计</a></li> 
 			</ul>
 			</li>
 		</ul>
@@ -252,6 +252,10 @@ $(document).ready(function() {
 					<option value="获奖">获奖</option>
 					<option value="学术兼职">学术兼职</option>
 					<option value="专利">专利</option>
+					<option value="进修学习">进修学习</option>
+					<option value="国际合作">国际合作</option>
+					<option value="软件著作权">软件著作权</option>
+					<option value="科研经费">科研经费</option>
 				</SELECT>
 				</td>
 				</tr>

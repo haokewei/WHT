@@ -35,7 +35,7 @@ public class delete_kyxm extends ActionSupport{
 		stmt.executeUpdate(sql1);
 		stmt.close();
 		con.close();
-		message();
+		//message();
 		return "success";
 	}
 }

@@ -17,8 +17,8 @@ public class updateaction_gjhz extends ActionSupport{
 	private String Fwmd;
 	private String Bgmc;
 	private String Xwbdlj;
-	private boolean Xwbgbcf;
-	private boolean Zpbcf;
+	private String Xwbgbcf;
+	private String Zpbcf;
 	private float Gzlfz;
 	
 	public String getLb() {
@@ -93,19 +93,19 @@ public class updateaction_gjhz extends ActionSupport{
 		this.Xwbdlj = Xwbdlj;
 	}
 
-	public boolean isXwbgbcf() {
+	public String getXwbgbcf() {
 		return this.Xwbgbcf;
 	}
 
-	public void setXwbgbcf(boolean Xwbgbcf) {
+	public void setXwbgbcf(String Xwbgbcf) {
 		this.Xwbgbcf = Xwbgbcf;
 	}
 
-	public boolean isZpbcf() {
+	public String getZpbcf() {
 		return this.Zpbcf;
 	}
 
-	public void setZpbcf(boolean Zpbcf) {
+	public void setZpbcf(String Zpbcf) {
 		this.Zpbcf = Zpbcf;
 	}
 
@@ -118,12 +118,13 @@ public class updateaction_gjhz extends ActionSupport{
 	}
 		
 		public String execute() throws Exception{
+			String temp = new String(Bgmc.getBytes("ISO-8859-1"),"UTF-8");
 			Connect c=new Connect();
 			Connection con=c.getConnection();
 			Statement stmt=null;
 			ResultSet rs=null;
 			stmt=con.createStatement();
-			String sql1="select * from 国际合作 where 报告名称='"+Bgmc+"'";		
+			String sql1="select * from 国际合作 where 报告名称='"+temp+"'";		
 			rs=stmt.executeQuery(sql1);
 			while(rs.next()){
 				Lb=rs.getString("类别");
@@ -135,8 +136,8 @@ public class updateaction_gjhz extends ActionSupport{
 				Fwmd=rs.getString("访问目的");
 				Bgmc=rs.getString("报告名称");
 				Xwbdlj=rs.getString("新闻报道链接");
-				Xwbgbcf=rs.getBoolean("新闻报告保存否");
-				Zpbcf=rs.getBoolean("照片保存否");
+				Xwbgbcf=rs.getString("新闻报告保存否");
+				Zpbcf=rs.getString("照片保存否");
 				Gzlfz=rs.getFloat("工作量分值");
 			}
 			rs.close();

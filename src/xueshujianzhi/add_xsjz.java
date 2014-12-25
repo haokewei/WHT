@@ -106,6 +106,7 @@ public class add_xsjz extends ActionSupport{
 	
 	
 	public String execute() throws Exception{
+		setBzf();
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
@@ -115,7 +116,7 @@ public class add_xsjz extends ActionSupport{
 		String sql2="insert into 学术兼职 "+"(学术团体名称,担任职务,任职开始时间,任职结束时间,姓名,学术量分值,标识符)"+"value("+"'"+Xsttmc+"'"+","+"'"+Drzw+"'"+","+"'"+Rzkssj+"'"+","+"'"+Rzjssj+"'"+","+"'"+Xm+"'"+","+"'"+Xslfz+"'"+","+"'"+Bzf+"'"+") ";		
 		if(Xsttmc==null||Drzw==null||Rzkssj==null||Rzjssj==null||Xm==null)
 		{
-			wrong1();
+			//wrong1();
 			stmt.close();
 			con.close();
 			return "incomplete";
@@ -125,7 +126,7 @@ public class add_xsjz extends ActionSupport{
 			rs=stmt.executeQuery(sql1);
 			if(rs.next())
 			{
-				wrong2();
+				//wrong2();
 				rs.close();
 				stmt.close();
 				con.close();
@@ -137,7 +138,7 @@ public class add_xsjz extends ActionSupport{
 				rs.close();
 				stmt.close();
 				con.close();
-				success();
+				//success();
 				return "success";
 			}
 		}

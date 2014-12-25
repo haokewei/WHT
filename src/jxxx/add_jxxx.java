@@ -100,6 +100,7 @@ public class add_jxxx extends ActionSupport{
 	
 	
 	public String execute() throws Exception{
+		setBzf();
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
@@ -109,7 +110,7 @@ public class add_jxxx extends ActionSupport{
 		String sql3="insert into 进修学习 "+"(进修学习单位,进修学习内容,开始时间,结束时间,人员姓名,工作量分值,标识符)"+"value("+"'"+Jxxxdw+"'"+","+"'"+Jxxxnr+"'"+","+"'"+Kssj+"'"+","+"'"+Jssj+"'"+","+"'"+Ryxm+"'"+","+"'"+Gzlfz+"'"+","+"'"+Bzf+"'"+") ";		
 		if(Jxxxdw==null||Jxxxnr==null||Kssj==null||Jssj==null||Ryxm==null||Gzlfz==0||Bzf==null)
 		{
-			wrong1();
+			//wrong1();
 			stmt.close();
 			con.close();
 			return "incomplete";
@@ -119,7 +120,7 @@ public class add_jxxx extends ActionSupport{
 			rs=stmt.executeQuery(sql2);
 			if(rs.next())
 			{
-				wrong2();
+				//wrong2();
 				rs.close();
 				stmt.close();
 				con.close();
@@ -131,7 +132,7 @@ public class add_jxxx extends ActionSupport{
 			rs.close();
 			stmt.close();
 			con.close();
-			success();
+			//success();
 			return "success";
 			}
 		}

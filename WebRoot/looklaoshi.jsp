@@ -217,7 +217,7 @@ $(document).ready(function() {
 			<li class="activate"><a href="index.jsp">成果统计并生成报表</a>
 			<ul class="sub-menu list-unstyled">
 				<li><a href="add_cbzz.jsp">人员成果统计</a></li>
-				<li><a href="add_huojinag.jsp">单位成果统计</a></li> 
+				<li><a href="add_huojinag.jsp">工作量统计</a></li> 
 			</ul>
 			</li>
 		</ul>

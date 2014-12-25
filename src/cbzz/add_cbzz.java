@@ -92,7 +92,7 @@ public class add_cbzz extends ActionSupport{
 		String sql3="insert into 出版专著 "+"(专著名称,出版社名称,著者名单,出版时间,工作量分值)"+"value("+"'"+Zzmc+"'"+","+"'"+Cbsmc+"'"+","+"'"+Zzmd+"'"+","+"'"+Cbsj+"'"+","+"'"+Gzlfz+"'"+") ";		
 		if(Cbsmc==null||Zzmd==null||Cbsj==null||Gzlfz==0||Zzmc==null)
 		{
-			wrong1();
+			//wrong1();
 			stmt.close();
 			con.close();
 			return "incomplete";
@@ -102,7 +102,7 @@ public class add_cbzz extends ActionSupport{
 			rs=stmt.executeQuery(sql2);
 			if(rs.next())
 			{
-				wrong2();
+				//wrong2();
 				rs.close();
 				stmt.close();
 				con.close();
@@ -112,7 +112,7 @@ public class add_cbzz extends ActionSupport{
 			{
 			stmt.executeUpdate(sql3);
 			rs.close();
-			success();
+			//success();
 			stmt.close();
 			con.close();
 			return "success";

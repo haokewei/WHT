@@ -90,21 +90,23 @@ public class update_jxxx extends ActionSupport{
 		JOptionPane.showMessageDialog(null,msg,title,type);
 	}
 	public String execute() throws Exception{
+		setBzf();
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
 		stmt=con.createStatement();
+		System.out.println(Ryxm + "  AAAAAAAAAAA   " + Bzf);
 		String sql1="update 进修学习 set 进修学习单位='"+Jxxxdw+"',进修学习内容='"+Jxxxnr+"',开始时间='"+Kssj+"',结束时间='"+Jssj+"',人员姓名='"+Ryxm+"',工作量分值='"+Gzlfz+"' where 标识符='"+Bzf+"'";
 		if(Jxxxdw==null||Jxxxnr==null||Kssj==null||Jssj==null||Ryxm==null||Gzlfz==0)
 		{
-			wrong();
+			//wrong();
 			stmt.close();
 			con.close();
 			return "error";
 		}
 		else{	
 			stmt.executeUpdate(sql1);
-			success();
+			//success();
 			return "success";		
 		}
 	}

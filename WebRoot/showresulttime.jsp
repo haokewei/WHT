@@ -1,4 +1,4 @@
-<%@page import ="look.lookbypeople" %>
+<%@page import ="look.lookbytime" %>
 <%@page import ="java.util.ArrayList" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
@@ -217,7 +217,7 @@ $(document).ready(function() {
 			<li class="activate"><a href="index.jsp">成果统计并生成报表</a>
 			<ul class="sub-menu list-unstyled">
 				<li><a href="print_gzl.jsp">人员成果统计</a></li>
-				<li><a href="print_dw.jsp">单位成果统计</a></li> 
+				<li><a href="print_dw.jsp">工作量统计</a></li> 
 			</ul>
 			</li>
 		</ul>
@@ -234,21 +234,19 @@ $(document).ready(function() {
             <br>  </br>  
             <br>  </br>  
 		<div align="center">
-<table border="2" cellsapcing="0" style="color: #cc3300" cellpadding ="0" bgcolor="white" width="30%" align="center">
+<table border="2" cellsapcing="0" cellpadding ="0" bgcolor="white" width="60%" align="center">
 		<h3>
 		<s:property value="Time"/> 的科研项目有:<br>
 		</h3>
 		<s:iterator value="Xmlb1" id="item"> 
     	<tr>
-		<td >
+		<td>
 		<s:a href="information_kyxm?Xmmc=%{item}" > 
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td width="40" >
-		<font color=red>
+		<td width="40">
 			<s:a href="deleteaction_kyxm?Xmmc=%{item}">删除</s:a>
-		</font>
 		</td>
 		<td width="40">
 			<s:a href="updateaction_kyxm?Xmmc=%{item}">更新</s:a>
@@ -263,15 +261,15 @@ $(document).ready(function() {
 		</h3>
 		<s:iterator value="Xmlb2" id="item"> 
     	<tr>
-		<td >
+		<td>
 		<s:a href="information_cbzz?Zzmc=%{item}" > 
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_cbzz?Zzmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_cbzz?Zzmc=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -289,10 +287,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_huojiang?Xmmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_huojiang?Xmmc=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -310,10 +308,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_xsjz?Bzf=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_xsjz?Bzf=%{item}">更新</s:a>
 		</td>
 		</tr>
@@ -331,10 +329,10 @@ $(document).ready(function() {
 		<s:property value='item'/>
 		</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="deleteaction_zhuanli?Zlmc=%{item}">删除</s:a>
 		</td>
-		<td>
+		<td width="40">
 			<s:a href="updateaction_zhuanli?Zlmc=%{item}">更新</s:a>
 		</td>
 		</tr>

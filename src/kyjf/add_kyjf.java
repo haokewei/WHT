@@ -22,6 +22,7 @@ public class add_kyjf extends ActionSupport{
 	private String Jfkh;
 	private String Bz;
 	private float Gzlfz;
+	private String Bzf;
 	
 	public void setXmmc (String Xmmc) throws Exception
 	{
@@ -140,6 +141,15 @@ public class add_kyjf extends ActionSupport{
 		return this.Gzlfz;
 	}
 	
+	public void setBzf()
+	{
+		this.Bz = Nf +" " + Xmmc;
+	}
+	public String getBzf()
+	{
+		return this.Bzf;
+	}
+	
 	
 	public void wrong1()
 	{
@@ -172,14 +182,14 @@ public class add_kyjf extends ActionSupport{
 		Statement stmt=null;
 		ResultSet rs=null;
 		stmt=con.createStatement();
-		
-		String sql1="select * from 科研经费 where 项目名称='"+Xmmc+"' and 年份='"+Nf+"'";
-		String sql2="insert into 科研经费 "+"(项目名称,项目来源,项目负责人,开始时间,结束时间,合同款,年份,到款,未到款,课题合同号,经费卡号,备注,工作量分值)"
+		setBzf();
+		String sql1="select * from 科研经费 where 标识符='"+Bzf+"'";
+		String sql2="insert into 科研经费 "+"(项目名称,项目来源,项目负责人,开始时间,结束时间,合同款,年份,到款,未到款,课题合同号,经费卡号,备注,工作量分值，标识符)"
 		+"value("+"'"+Xmmc+"'"+","+"'"+Xmly+"'"+","+"'"+Xmfzr+"'"+","+"'"+Kssj+"'"+","+"'"+Jssj+"'"+","+"'"+Htk+"'"+"," +
-				""+"'"+Nf+"'"+","+"'"+Dk+"'"+","+"'"+Wdk+"'"+","+"'"+Kthth+"'"+","+"'"+Jfkh+"'"+","+"'"+Bz+"'"+","+"'"+Gzlfz+"'"+") ";		
-		if(Xmmc==null||Xmly==null||Xmfzr==null||Kssj==null||Jssj==null||Htk==0||Nf==null||Dk==0||Wdk==0||Kthth==null||Jfkh==null)
+				""+"'"+Nf+"'"+","+"'"+Dk+"'"+","+"'"+Wdk+"'"+","+"'"+Kthth+"'"+","+"'"+Jfkh+"'"+","+"'"+Bz+"'"+","+"'"+Gzlfz+"'"+","+"'"+Bzf+"'"+") ";		
+		if(Xmmc==null||Xmly==null||Xmfzr==null||Kssj==null||Jssj==null||Htk==0||Nf==null||Dk==0||Wdk==0||Kthth==null||Jfkh==null||Bzf==null)
 		{
-			wrong1();
+			//wrong1();
 			stmt.close();
 			con.close();
 			return "incomplete";
@@ -189,7 +199,7 @@ public class add_kyjf extends ActionSupport{
 			rs=stmt.executeQuery(sql1);
 			if(rs.next())
 			{
-				wrong2();
+				//wrong2();
 				rs.close();
 				stmt.close();
 				con.close();
@@ -201,7 +211,7 @@ public class add_kyjf extends ActionSupport{
 				rs.close();
 				stmt.close();
 				con.close();
-				success();
+				//success();
 				return "success";
 			}
 		}

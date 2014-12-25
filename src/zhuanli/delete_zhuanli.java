@@ -42,7 +42,7 @@ public class delete_zhuanli extends ActionSupport{
 		stmt.close();
 		stmt2.close();
 		con.close();
-		message();
+		//message();
 		return "success";
 	}
 }

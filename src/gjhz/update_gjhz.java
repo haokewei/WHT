@@ -18,8 +18,8 @@ public class update_gjhz extends ActionSupport{
 	private String Fwmd;
 	private String Bgmc;
 	private String Xwbdlj;
-	private boolean Xwbgbcf;
-	private boolean Zpbcf;
+	private String Xwbgbcf;
+	private String Zpbcf;
 	private float Gzlfz;
 	
 	public String getLb() {
@@ -94,19 +94,19 @@ public class update_gjhz extends ActionSupport{
 		this.Xwbdlj = Xwbdlj;
 	}
 
-	public boolean isXwbgbcf() {
+	public String getXwbgbcf() {
 		return this.Xwbgbcf;
 	}
 
-	public void setXwbgbcf(boolean Xwbgbcf) {
+	public void setXwbgbcf(String Xwbgbcf) {
 		this.Xwbgbcf = Xwbgbcf;
 	}
 
-	public boolean isZpbcf() {
+	public String getZpbcf() {
 		return this.Zpbcf;
 	}
 
-	public void setZpbcf(boolean Zpbcf) {
+	public void setZpbcf(String Zpbcf) {
 		this.Zpbcf = Zpbcf;
 	}
 
@@ -137,9 +137,9 @@ public class update_gjhz extends ActionSupport{
 			Statement stmt=null;
 			stmt=con.createStatement();
 			String sql1="update 国际合作 set 类别='"+Lb+"',人员名单='"+Rymd+"',人数='"+Rs+"',开始时间='"+Kssj+"',结束时间='"+Jssj+"',地点='"+Dd+"',访问目的='"+Fwmd+"',新闻报道链接='"+Xwbdlj+"',新闻报告保存否='"+Xwbgbcf+"',照片保存否='"+Zpbcf+"' where 报告名称='"+Bgmc+"'";				
-			if(Lb==null||Rymd==null||Rs==0||Kssj==null||Jssj==null||Dd==null||Fwmd==null||Bgmc==null||Xwbdlj==null)
+			if(Lb==null||Rymd==null||Rs==0||Kssj==null||Jssj==null||Dd==null||Fwmd==null||Bgmc==null||Xwbdlj==null||Xwbgbcf==null||Zpbcf==null||Gzlfz==0)
 			{
-				wrong();
+				//wrong();
 				stmt.close();
 				con.close();
 				return "error";
@@ -148,7 +148,7 @@ public class update_gjhz extends ActionSupport{
 			{
 				stmt.executeUpdate(sql1);
 			}
-			success();
+			//success();
 			return "success";		
 		}
 }

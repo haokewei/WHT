@@ -168,14 +168,14 @@ public class update_kyxm extends ActionSupport{
 		
 		if(Xmly==null||Xmfzr==null||Kssj==null||Jssj==null||Htk==0||Lx==null||Jdyssj==null||Jdyszzdw==null||Kthth==null||Jfkh==null)
 		{
-			wrong();
+			//wrong();
 			stmt.close();
 			con.close();
 			return "error";
 		}
 		else{
 			stmt.executeUpdate(sql1);
-			success();
+			//success();
 			stmt.close();
 			con.close();
 			return "success";		

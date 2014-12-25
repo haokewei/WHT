@@ -72,6 +72,7 @@ public class update_cbzz extends ActionSupport{
 			JOptionPane.showMessageDialog(null,msg,title,type);
 		}
 		public String execute() throws Exception{
+			
 			Connect c=new Connect();
 			Connection con=c.getConnection();
 			Statement stmt=null;
@@ -79,7 +80,7 @@ public class update_cbzz extends ActionSupport{
 			String sql1="update 出版专著 set 出版社名称='"+Cbsmc+"',著者名单='"+Zzmd+"',工作量分值='"+Gzlfz+"',出版时间='"+Cbsj+"' where 专著名称='"+Zzmc+"'";				
 			if(Cbsmc==null||Zzmd==null||Cbsj==null||Gzlfz==0||Zzmc==null)
 			{
-				wrong();
+				//wrong();
 				stmt.close();
 				con.close();
 				return "error";
@@ -88,7 +89,7 @@ public class update_cbzz extends ActionSupport{
 			{
 				stmt.executeUpdate(sql1);
 			}
-			success();
+			//success();
 			return "success";		
 		}
 }

@@ -65,12 +65,13 @@ public class updateaction_huojiang extends ActionSupport{
 	}
 		
 		public String execute() throws Exception{
+			String temp = new String(Xmmc.getBytes("ISO-8859-1"),"UTF-8");
 			Connect c=new Connect();
 			Connection con=c.getConnection();
 			Statement stmt=null;
 			ResultSet rs=null;
 			stmt=con.createStatement();
-			String sql1="select * from 获奖 where 项目名称='"+Xmmc+"'";		
+			String sql1="select * from 获奖 where 项目名称='"+temp+"'";		
 			rs=stmt.executeQuery(sql1);
 			while(rs.next()){
 			Xmmc=rs.getString("项目名称");

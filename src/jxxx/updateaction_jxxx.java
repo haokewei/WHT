@@ -64,9 +64,9 @@ public class updateaction_jxxx extends ActionSupport{
 		this.Gzlfz = Gzlfz;
 	}
 	
-	public void setBzf ()
+	public void setBzf (String Bzf)
 	{
-		this.Bzf = Jxxxdw + " " + Ryxm;
+		this.Bzf = Bzf;
 	}
 	
 	public String getBzf()
@@ -75,12 +75,13 @@ public class updateaction_jxxx extends ActionSupport{
 	}
 	
 	public String execute() throws Exception{
+		String temp = new String(Bzf.getBytes("ISO-8859-1"),"UTF-8");
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
 		stmt=con.createStatement();
-		String sql1="select * from 进修学习 where 标识符='"+Bzf+"'";		
+		String sql1="select * from 进修学习 where 标识符='"+temp+"'";		
 		rs=stmt.executeQuery(sql1);
 		while(rs.next()){
 			Jxxxdw = rs.getString("进修学习单位");

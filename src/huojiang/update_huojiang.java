@@ -87,7 +87,7 @@ public class update_huojiang extends ActionSupport{
 			String sql1="update 获奖 set 获奖类别='"+Hjlb+"',获奖等级='"+Hjdj+"',获奖人员名单='"+Hjrymd+"',工作量分值='"+Gzlfz+"',获奖时间='"+Hjsj+"' where 项目名称='"+Xmmc+"'";				
 			if(Hjlb==null||Hjdj==null||Hjrymd==null||Hjsj==null||Gzlfz==0||Xmmc==null)
 			{
-				wrong();
+				//wrong();
 				stmt.close();
 				con.close();
 				return "error";
@@ -96,7 +96,7 @@ public class update_huojiang extends ActionSupport{
 			{
 				stmt.executeUpdate(sql1);
 			}
-			success();
+			//success();
 			return "success";		
 		}
 }

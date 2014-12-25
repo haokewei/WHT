@@ -78,12 +78,13 @@ public class xueshujianzhi extends ActionSupport{
 		return this.Bzf;
 	}
 	public String execute() throws Exception{
+		String temp = new String(Bzf.getBytes("ISO-8859-1"),"UTF-8");
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
 		stmt=con.createStatement();	
-		String sql1="select * from 学术兼职 where 标识符='"+Bzf+"'";		
+		String sql1="select * from 学术兼职 where 标识符='"+temp+"'";		
 		rs=stmt.executeQuery(sql1);
 		while(rs.next()){
 			Xsttmc = rs.getString("学术团体名称");

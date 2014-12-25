@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<package name="look" extends="struts-default">
+<action name="lookbypeopleaction" class="look.lookbypeople">
+<result name="error">lookbypeople.jsp</result>
+<result name="success">showresultpeople.jsp</result>
+</action>
+<action name="lookbyadvancedaction" class="look.lookbyadvanced">
+<result name="error">lookbyadvanced.jsp</result>
+<result name="success">showresultadvanced.jsp</result>
+</action>
+<action name="lookbytimeaction" class="look.lookbytime">
+<result name="error">lookbytime.jsp</result>
+<result name="success">showresulttime.jsp</result>
+</action>
+<action name="lookbytitleaction" class="look.lookbytitle">
+<result name="error">lookbytitle.jsp</result>
+<result name="success">showresulttitle.jsp</result>
+</action>
+<action name="lookbytypeaction" class="look.lookbytype">
+<result name="error">lookbytype.jsp</result>
+<result name="success">showresulttype.jsp</result>
+</action>
+<action name="looklaoshiaction" class="look.looklaoshi">
+<result name="error">looklaoshi.jsp</result>
+<result name="success">showresultlaoshi.jsp</result>
+</action>
+</package>
+
+<package name="cbzz" extends="struts-default">
+<action name="update_cbzz" class="cbzz.update_cbzz">
+<result name="error">update_cbzz.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="updateaction_cbzz" class="cbzz.updateaction_cbzz">
+<result name="success">update_cbzz.jsp</result>
+</action>
+<action name="deleteaction_cbzz" class="cbzz.delete_cbzz">
+<result name="success">zhu.jsp</result>
+</action>
+<action name="add_cbzz" class="cbzz.add_cbzz">
+<result name="success">zhu.jsp</result>
+<result name="incomplete">add_cbzz.jsp</result>
+<result name="error">add_cbzz.jsp</result>
+</action>
+<action name="information_cbzz" class="cbzz.cbzz">
+<result name="success">information_cbzz.jsp</result>
+</action>
+</package>
+
+<package name="huojiang" extends="struts-default">
+<action name="update_huojiang" class="huojiang.update_huojiang">
+<result name="error">update_huojiang.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="updateaction_huojiang" class="huojiang.updateaction_huojiang">
+<result name="success">update_huojiang.jsp</result>
+</action>
+<action name="deleteaction_huojiang" class="huojiang.delete_huojiang">
+<result name="success">zhu.jsp</result>
+</action>
+<action name="add_huojiang" class="huojiang.add_huojiang">
+<result name="success">zhu.jsp</result>
+<result name="incomplete">add_huojiang.jsp</result>
+<result name="error">add_huojiang.jsp</result>
+</action>
+<action name="information_huojiang" class="huojiang.huojiang">
+<result name="success">information_huojiang.jsp</result>
+</action>
+</package>
+
+<package name="keyanxiangmu" extends="struts-default">
+<action name="update_kyxm" class="keyanxiangmu.update_kyxm">
+<result name="error">update_kyxm.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="updateaction_kyxm" class="keyanxiangmu.updateaction_kyxm">
+<result name="success">update_kyxm.jsp</result>
+</action>
+<action name="deleteaction_kyxm" class="keyanxiangmu.delete_kyxm">
+<result name="success">zhu.jsp</result>
+</action>
+<action name="add_kyxm" class="keyanxiangmu.add_kyxm">
+<result name="success">zhu.jsp</result>
+<result name="incomplete">add_kyxm.jsp</result>
+<result name="error">add_kyxm.jsp</result>
+</action>
+<action name="information_kyxm" class="keyanxiangmu.keyanxiangmu">
+<result name="success">information_kyxm.jsp</result>
+</action>
+</package>
+
+<package name="xueshujianzhi" extends="struts-default">
+<action name="update_xsjz" class="xueshujianzhi.update_xsjz">
+<result name="error">update_xsjz.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="updateaction_xsjz" class="xueshujianzhi.updateaction_xsjz">
+<result name="success">update_xsjz.jsp</result>
+</action>
+<action name="deleteaction_xsjz" class="xueshujianzhi.delete_xsjz">
+<result name="success">zhu.jsp</result>
+</action>
+<action name="add_xsjz" class="xueshujianzhi.add_xsjz">
+<result name="success">zhu.jsp</result>
+<result name="incomplete">add_xsjz.jsp</result>
+<result name="error">add_xsjz.jsp</result>
+</action>
+<action name="information_xsjz" class="xueshujianzhi.xueshujianzhi">
+<result name="success">information_xsjz.jsp</result>
+</action>
+</package>
+
+<package name="zhuanli" extends="struts-default">
+<action name="update_zhuanli" class="zhuanli.update_zhuanli">
+<result name="error">update_zhuanli.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="updateaction_zhuanli" class="zhuanli.updateaction_zhuanli">
+<result name="success">update_zhuanli.jsp</result>
+</action>
+<action name="deleteaction_zhuanli" class="zhuanli.delete_zhuanli">
+<result name="success">zhu.jsp</result>
+</action>
+<action name="add_zhuanli" class="zhuanli.add_zhuanli">
+<result name="success">zhu.jsp</result>
+<result name="incomplete">add_zhuanli.jsp</result>
+<result name="error">add_zhuanli.jsp</result>
+</action>
+<action name="information_zhuanli" class="zhuanli.zhuanli">
+<result name="success">information_zhuanli.jsp</result>
+</action>
+</package>
+
+<package name="laoshi" extends="struts-default">
+<action name="update_laoshi" class="laoshi.update_laoshi">
+<result name="error">update_laoshi.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="updateaction_laoshi" class="laoshi.updateaction_laoshi">
+<result name="success">update_laoshi.jsp</result>
+</action>
+<action name="deleteaction_laoshi" class="laoshi.delete_laoshi">
+<result name="success">zhu.jsp</result>
+</action>
+<action name="add_laoshi" class="laoshi.add_laoshi">
+<result name="success">zhu.jsp</result>
+<result name="incomplete">add_laoshi.jsp</result>
+<result name="error">add_laoshi.jsp</result>
+</action>
+<action name="information_laoshi" class="laoshi.laoshi">
+<result name="success">information_laoshi.jsp</result>
+</action>
+</package>
+
+<package name="print" extends="struts-default">
+<action name="print_gzl" class="print.print_gzl">
+<result name="error">print_gzl.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="print_dw" class="print.print_dw">
+<result name="success">zhu.jsp</result>
+</action>
+</package>
+
+<package name="zcdl" extends="struts-default">
+<action name="zhuce" class="zcdl.zhuce">
+<result name="error">index.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="denglu" class="zcdl.denglu">
+<result name="error">index.jsp</result>
+<result name="success">zhu.jsp</result>
+<result name="success2">zhu2.jsp</result>
+</action>
+</package>
+
+<package name="jxxx" extends="struts-default">
+<action name="update_jxxx" class="jxxx.update_jxxx">
+<result name="error">update_jxxx.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="updateaction_jxxx" class="jxxx.updateaction_jxxx">
+<result name="success">update_jxxx.jsp</result>
+</action>
+<action name="deleteaction_jxxx" class="jxxx.delete_jxxx">
+<result name="success">zhu.jsp</result>
+</action>
+<action name="add_jxxx" class="jxxx.add_jxxx">
+<result name="success">zhu.jsp</result>
+<result name="incomplete">add_jxxx.jsp</result>
+<result name="error">add_jxxx.jsp</result>
+</action>
+<action name="information_jxxx" class="jxxx.jxxx">
+<result name="success">information_jxxx.jsp</result>
+</action>
+</package>
+
+<package name="kyjf" extends="struts-default">
+<action name="update_kyjf" class="kyjf.update_kyjf">
+<result name="error">update_kyjf.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="updateaction_kyjf" class="kyjf.updateaction_kyjf">
+<result name="success">update_kyjf.jsp</result>
+</action>
+<action name="deleteaction_kyjf" class="kyjf.delete_kyjf">
+<result name="success">zhu.jsp</result>
+</action>
+<action name="add_kyjf" class="kyjf.add_kyjf">
+<result name="success">zhu.jsp</result>
+<result name="incomplete">add_kyjf.jsp</result>
+<result name="error">add_kyjf.jsp</result>
+</action>
+<action name="information_kyjf" class="kyjf.kyjf">
+<result name="success">information_kyjf.jsp</result>
+</action>
+</package>
+
+<package name="gjhz" extends="struts-default">
+<action name="update_gjhz" class="gjhz.update_gjhz">
+<result name="error">update_gjhz.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="updateaction_gjhz" class="gjhz.updateaction_gjhz">
+<result name="success">update_gjhz.jsp</result>
+</action>
+<action name="deleteaction_gjhz" class="gjhz.delete_gjhz">
+<result name="success">zhu.jsp</result>
+</action>
+<action name="add_gjhz" class="gjhz.add_gjhz">
+<result name="success">zhu.jsp</result>
+<result name="incomplete">add_gjhz.jsp</result>
+<result name="error">add_gjhz.jsp</result>
+</action>
+<action name="information_gjhz" class="gjhz.gjhz">
+<result name="success">information_gjhz.jsp</result>
+</action>
+</package>
+
+<package name="rjzzq" extends="struts-default">
+<action name="update_rjzzq" class="rjzzq.update_rjzzq">
+<result name="error">update_rjzzq.jsp</result>
+<result name="success">zhu.jsp</result>
+</action>
+<action name="updateaction_rjzzq" class="rjzzq.updateaction_rjzzq">
+<result name="success">update_rjzzq.jsp</result>
+</action>
+<action name="deleteaction_rjzzq" class="rjzzq.delete_rjzzq">
+<result name="success">zhu.jsp</result>
+</action>
+<action name="add_rjzzq" class="rjzzq.add_rjzzq">
+<result name="success">zhu.jsp</result>
+<result name="incomplete">add_rjzzq.jsp</result>
+<result name="error">add_rjzzq.jsp</result>
+</action>
+<action name="information_rjzzq" class="rjzzq.rjzzq">
+<result name="success">information_rjzzq.jsp</result>
+</action>
+</package>
+
+</struts>    

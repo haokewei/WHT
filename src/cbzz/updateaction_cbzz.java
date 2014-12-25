@@ -58,13 +58,15 @@ public class updateaction_cbzz extends ActionSupport{
 	}
 		
 		public String execute() throws Exception{
+			
 			Zzmc=getZzmc();
+			String temp = new String(Zzmc.getBytes("ISO-8859-1"),"UTF-8");
 			Connect c=new Connect();
 			Connection con=c.getConnection();
 			Statement stmt=null;
 			ResultSet rs=null;
 			stmt=con.createStatement();
-			String sql1="select * from 出版专著 where 专著名称='"+Zzmc+"'";
+			String sql1="select * from 出版专著 where 专著名称='"+temp+"'";
 			rs=stmt.executeQuery(sql1);
 			while(rs.next()){
 			Zzmc=rs.getString("专著名称");

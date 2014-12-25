@@ -100,7 +100,7 @@ public class add_huojiang extends ActionSupport{
 		String sql3="insert into 获奖  "+"(项目名称,获奖类别,获奖等级,获奖人员名单,获奖时间,工作量分值)"+"value("+"'"+Xmmc+"'"+","+"'"+Hjlb+"'"+","+"'"+Hjdj+"'"+","+"'"+Hjrymd+"'"+","+"'"+Hjsj+"'"+","+"'"+Gzlfz+"'"+") ";		
 		if(Hjlb==null||Hjrymd==null||Hjsj==null||Gzlfz==0||Xmmc==null)
 		{
-			wrong1();
+			//wrong1();
 			stmt.close();
 			con.close();
 			return "incomplete";
@@ -110,7 +110,7 @@ public class add_huojiang extends ActionSupport{
 			rs=stmt.executeQuery(sql2);
 			if(rs.next())
 			{
-				wrong2();
+				//wrong2();
 				rs.close();
 				stmt.close();
 				con.close();
@@ -122,7 +122,7 @@ public class add_huojiang extends ActionSupport{
 			rs.close();
 			stmt.close();
 			con.close();
-			success();
+			//success();
 			return "success";
 			}
 		}

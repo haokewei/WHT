@@ -140,14 +140,17 @@ public class keyanxiangmu extends ActionSupport{
 	}
 	
 	public String execute() throws Exception{
+		String temp = new String(Xmmc.getBytes("ISO-8859-1"),"UTF-8");
 		Connect c=new Connect();
 		Connection con=c.getConnection();
 		Statement stmt=null;
 		ResultSet rs=null;
 		stmt=con.createStatement();
-		String sql1="select * from 科研项目 where 项目名称='"+Xmmc+"'";		
+		String sql1="select * from 科研项目 where 项目名称='"+temp+"'";		
 		rs=stmt.executeQuery(sql1);
+		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAA");
 		while(rs.next()){
+			System.out.println("BBBBBBBBBBBBBBBBBBBBBBB");
 			Xmmc = rs.getString("项目名称");
 			Xmly = rs.getString("项目来源");
 			Xmfzr = rs.getString("项目负责人");
@@ -161,7 +164,9 @@ public class keyanxiangmu extends ActionSupport{
 			Jfkh = rs.getString("经费卡号");
 			Bz = rs.getString("备注");
 			Gzlfz = rs.getFloat("工作量分值");
+			System.out.println("CCCCCCCCCCCCCCCCCCCCCCc");
 		}
+		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDD");
 		rs.close();
 		stmt.close();
 		con.close();
